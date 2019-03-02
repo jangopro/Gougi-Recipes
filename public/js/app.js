@@ -65855,6 +65855,7 @@ function (_Component) {
     _this.state = {
       name: '',
       description: '',
+      cookTime: '',
       errors: []
     };
     _this.handleFieldChange = _this.handleFieldChange.bind(_assertThisInitialized(_this));
@@ -65878,7 +65879,8 @@ function (_Component) {
       var history = this.props.history;
       var recipe = {
         name: this.state.name,
-        description: this.state.description
+        description: this.state.description,
+        cookTime: this.state.cookTime
       };
       axios.post('/api/recipes', recipe).then(function (response) {
         // redirect to the homepage
@@ -65952,7 +65954,7 @@ function (_Component) {
         name: "cookTime",
         value: this.state.cookTime,
         onChange: this.handleFieldChange
-      }), this.renderErrorFor('description')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }), this.renderErrorFor('cookTime')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "btn btn-primary"
       }, "Create")))))));
     }
@@ -66047,7 +66049,7 @@ function (_Component) {
         className: "card-header"
       }, recipe.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card-body"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, recipe.description), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ol", null, recipe.instructions.map(function (instruction) {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, recipe.description), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, recipe.cookTime, " min"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ol", null, recipe.instructions.map(function (instruction) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           key: instruction.id
         }, instruction.description);

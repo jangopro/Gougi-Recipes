@@ -6,6 +6,7 @@ export default class NewRecipe extends Component {
         this.state = {
           name: '',
           description: '',
+          cookTime: '',
           errors: []
         }
         this.handleFieldChange = this.handleFieldChange.bind(this)
@@ -27,7 +28,8 @@ export default class NewRecipe extends Component {
 
         const recipe = {
           name: this.state.name,
-          description: this.state.description
+          description: this.state.description,
+          cookTime: this.state.cookTime
         }
 
         axios.post('/api/recipes', recipe)
@@ -88,6 +90,17 @@ export default class NewRecipe extends Component {
                           onChange={this.handleFieldChange}
                         />
                         {this.renderErrorFor('description')}
+                      </div>
+                      <div className='form-group'>
+                        <label htmlFor='description'>Cook Time</label>
+                        <input
+                          id='description'
+                          className={`form-control ${this.hasErrorFor('cookTime') ? 'is-invalid' : ''}`}
+                          name='cookTime'
+                          value={this.state.cookTime}
+                          onChange={this.handleFieldChange}
+                        />
+                        {this.renderErrorFor('cookTime')}
                       </div>
                       <button className='btn btn-primary'>Create</button>
                     </form>
