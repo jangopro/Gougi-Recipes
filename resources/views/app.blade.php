@@ -12,6 +12,10 @@
 
     </head>
     <body>
+        <nav class="navbar navbar-dark bg-dark">
+            <a class="navbar-brand" href="/">Navbar</a>
+        </nav>
+
         <div id="app"></div>
         <script src="{{ asset('js/app.js') }}"></script>
     </body>

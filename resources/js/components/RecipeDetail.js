@@ -5,7 +5,9 @@ export default class RecipeDetail extends Component {
     constructor (props) {
         super(props)
         this.state = {
-            recipe: {}
+            recipe: {
+              instructions: []
+            }
         }
       }
 
@@ -30,6 +32,13 @@ export default class RecipeDetail extends Component {
                   <div className='card-header'>{recipe.name}</div>
                   <div className='card-body'>
                     <p>{recipe.description}</p>
+                    <ol>
+                    {
+                      recipe.instructions.map( instruction => (
+                        <li key={instruction.id}>{instruction.description}</li>
+                        ))
+                      }
+                    </ol>
                   </div>
                 </div>
               </div>

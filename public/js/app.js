@@ -65942,6 +65942,16 @@ function (_Component) {
         rows: "10",
         value: this.state.description,
         onChange: this.handleFieldChange
+      }), this.renderErrorFor('description')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "description"
+      }, "Cook Time"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        id: "description",
+        className: "form-control ".concat(this.hasErrorFor('cookTime') ? 'is-invalid' : ''),
+        name: "cookTime",
+        value: this.state.cookTime,
+        onChange: this.handleFieldChange
       }), this.renderErrorFor('description')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "btn btn-primary"
       }, "Create")))))));
@@ -66002,7 +66012,9 @@ function (_Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(RecipeDetail).call(this, props));
     _this.state = {
-      recipe: {}
+      recipe: {
+        instructions: []
+      }
     };
     return _this;
   }
@@ -66035,7 +66047,11 @@ function (_Component) {
         className: "card-header"
       }, recipe.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card-body"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, recipe.description))))));
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, recipe.description), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ol", null, recipe.instructions.map(function (instruction) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+          key: instruction.id
+        }, instruction.description);
+      })))))));
     }
   }]);
 
