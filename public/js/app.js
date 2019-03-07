@@ -65856,6 +65856,8 @@ function (_Component) {
       name: '',
       description: '',
       cookTime: '',
+      prepTime: '',
+      author: '',
       errors: []
     };
     _this.handleFieldChange = _this.handleFieldChange.bind(_assertThisInitialized(_this));
@@ -65880,7 +65882,9 @@ function (_Component) {
       var recipe = {
         name: this.state.name,
         description: this.state.description,
-        cookTime: this.state.cookTime
+        cookTime: this.state.cookTime,
+        prepTime: this.state.prepTime,
+        author: this.state.author
       };
       axios.post('/api/recipes', recipe).then(function (response) {
         // redirect to the homepage
@@ -65926,7 +65930,7 @@ function (_Component) {
         className: "form-group"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "name"
-      }, "Project name"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, "Recipe name"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         id: "name",
         type: "text",
         className: "form-control ".concat(this.hasErrorFor('name') ? 'is-invalid' : ''),
@@ -65937,7 +65941,7 @@ function (_Component) {
         className: "form-group"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "description"
-      }, "Project description"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+      }, "Recipe description"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
         id: "description",
         className: "form-control ".concat(this.hasErrorFor('description') ? 'is-invalid' : ''),
         name: "description",
@@ -65947,14 +65951,34 @@ function (_Component) {
       }), this.renderErrorFor('description')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        htmlFor: "description"
+        htmlFor: "cookTime"
       }, "Cook Time"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        id: "description",
+        id: "cookTime",
         className: "form-control ".concat(this.hasErrorFor('cookTime') ? 'is-invalid' : ''),
         name: "cookTime",
         value: this.state.cookTime,
         onChange: this.handleFieldChange
-      }), this.renderErrorFor('cookTime')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }), this.renderErrorFor('cookTime')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "prepTime"
+      }, "Prep Time"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        id: "prepTime",
+        className: "form-control ".concat(this.hasErrorFor('prepTime') ? 'is-invalid' : ''),
+        name: "prepTime",
+        value: this.state.prepTime,
+        onChange: this.handleFieldChange
+      }), this.renderErrorFor('prepTime')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "author"
+      }, "Author"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        id: "author",
+        className: "form-control ".concat(this.hasErrorFor('author') ? 'is-invalid' : ''),
+        name: "author",
+        value: this.state.author,
+        onChange: this.handleFieldChange
+      }), this.renderErrorFor('author')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "btn btn-primary"
       }, "Create")))))));
     }
@@ -66049,7 +66073,7 @@ function (_Component) {
         className: "card-header"
       }, recipe.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card-body"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, recipe.description), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, recipe.cookTime, " min"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ol", null, recipe.instructions.map(function (instruction) {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, recipe.description), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, recipe.author), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Prep time: ", recipe.prepTime, " min"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Cook Time: ", recipe.cookTime, " min"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ol", null, recipe.instructions.map(function (instruction) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           key: instruction.id
         }, instruction.description);

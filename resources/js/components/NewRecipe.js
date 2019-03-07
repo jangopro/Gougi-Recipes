@@ -7,6 +7,8 @@ export default class NewRecipe extends Component {
           name: '',
           description: '',
           cookTime: '',
+          prepTime: '',
+          author: '',
           errors: []
         }
         this.handleFieldChange = this.handleFieldChange.bind(this)
@@ -29,7 +31,9 @@ export default class NewRecipe extends Component {
         const recipe = {
           name: this.state.name,
           description: this.state.description,
-          cookTime: this.state.cookTime
+          cookTime: this.state.cookTime,
+          prepTime: this.state.prepTime,
+          author: this.state.author
         }
 
         axios.post('/api/recipes', recipe)
@@ -68,7 +72,7 @@ export default class NewRecipe extends Component {
                   <div className='card-body'>
                     <form onSubmit={this.handleCreateNewRecipe}>
                       <div className='form-group'>
-                        <label htmlFor='name'>Project name</label>
+                        <label htmlFor='name'>Recipe name</label>
                         <input
                           id='name'
                           type='text'
@@ -80,7 +84,7 @@ export default class NewRecipe extends Component {
                         {this.renderErrorFor('name')}
                       </div>
                       <div className='form-group'>
-                        <label htmlFor='description'>Project description</label>
+                        <label htmlFor='description'>Recipe description</label>
                         <textarea
                           id='description'
                           className={`form-control ${this.hasErrorFor('description') ? 'is-invalid' : ''}`}
@@ -92,15 +96,37 @@ export default class NewRecipe extends Component {
                         {this.renderErrorFor('description')}
                       </div>
                       <div className='form-group'>
-                        <label htmlFor='description'>Cook Time</label>
+                        <label htmlFor='cookTime'>Cook Time</label>
                         <input
-                          id='description'
+                          id='cookTime'
                           className={`form-control ${this.hasErrorFor('cookTime') ? 'is-invalid' : ''}`}
                           name='cookTime'
                           value={this.state.cookTime}
                           onChange={this.handleFieldChange}
                         />
                         {this.renderErrorFor('cookTime')}
+                      </div>
+                      <div className='form-group'>
+                        <label htmlFor='prepTime'>Prep Time</label>
+                        <input
+                          id='prepTime'
+                          className={`form-control ${this.hasErrorFor('prepTime') ? 'is-invalid' : ''}`}
+                          name='prepTime'
+                          value={this.state.prepTime}
+                          onChange={this.handleFieldChange}
+                        />
+                        {this.renderErrorFor('prepTime')}
+                      </div>
+                      <div className='form-group'>
+                        <label htmlFor='author'>Author</label>
+                        <input
+                          id='author'
+                          className={`form-control ${this.hasErrorFor('author') ? 'is-invalid' : ''}`}
+                          name='author'
+                          value={this.state.author}
+                          onChange={this.handleFieldChange}
+                        />
+                        {this.renderErrorFor('author')}
                       </div>
                       <button className='btn btn-primary'>Create</button>
                     </form>

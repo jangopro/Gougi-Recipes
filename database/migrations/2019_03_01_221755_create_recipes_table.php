@@ -18,6 +18,8 @@ class CreateRecipesTable extends Migration
             $table->string('name');
             $table->text('description');
             $table->text('cookTime');
+            $table->text('prepTime');
+            $table->text('author');
             $table->timestamps();
         });
     }

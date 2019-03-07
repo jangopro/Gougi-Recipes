@@ -31,7 +31,9 @@ class RecipeController extends Controller
         $project = Recipe::create([
           'name' => $validatedData['name'],
           'description' => $validatedData['description'],
-          'cookTime' => $request['cookTime']
+          'cookTime' => $request['cookTime'],
+          'prepTime' => $request['prepTime'],
+          'author' => $request['author']
         ]);
 
         return response()->json('Recipe created!');

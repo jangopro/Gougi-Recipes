@@ -32,7 +32,9 @@ export default class RecipeDetail extends Component {
                   <div className='card-header'>{recipe.name}</div>
                   <div className='card-body'>
                     <p>{recipe.description}</p>
-                    <p>{recipe.cookTime} min</p>
+                    <p>{recipe.author}</p>
+                    <p>Prep time: {recipe.prepTime} min</p>
+                    <p>Cook Time: {recipe.cookTime} min</p>
                     <ol>
                     {
                       recipe.instructions.map( instruction => (
