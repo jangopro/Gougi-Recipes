@@ -13,7 +13,7 @@
     </head>
     <body>
         <nav class="navbar navbar-dark bg-dark">
-            <a class="navbar-brand" href="/">Navbar</a>
+            <a class="navbar-brand" href="/">Gougi Recipes</a>
         </nav>
 
         <div id="app"></div>

@@ -66174,14 +66174,12 @@ function (_Component) {
         to: "/create"
       }, "Create new project"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         className: "list-group list-group-flush"
-      }, recipes.map(function (project) {
+      }, recipes.map(function (recipe) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
           className: "list-group-item list-group-item-action d-flex justify-content-between align-items-center",
-          to: "/".concat(project.id),
-          key: project.id
-        }, project.name, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-          className: "badge badge-primary badge-pill"
-        }, project.tasks_count));
+          to: "/".concat(recipe.id),
+          key: recipe.id
+        }, recipe.name);
       })))))));
     }
   }]);
