@@ -65663,7 +65663,7 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
  */
 
 
-__webpack_require__(/*! ./components/App */ "./resources/js/components/App.js");
+__webpack_require__(/*! ./components/App.jsx */ "./resources/js/components/App.jsx");
 
 /***/ }),
 
@@ -65725,10 +65725,10 @@ if (token) {
 
 /***/ }),
 
-/***/ "./resources/js/components/App.js":
-/*!****************************************!*\
-  !*** ./resources/js/components/App.js ***!
-  \****************************************/
+/***/ "./resources/js/components/App.jsx":
+/*!*****************************************!*\
+  !*** ./resources/js/components/App.jsx ***!
+  \*****************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -65740,9 +65740,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
-/* harmony import */ var _RecipeList__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./RecipeList */ "./resources/js/components/RecipeList.js");
-/* harmony import */ var _RecipeDetail__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./RecipeDetail */ "./resources/js/components/RecipeDetail.js");
-/* harmony import */ var _NewRecipe__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./NewRecipe */ "./resources/js/components/NewRecipe.js");
+/* harmony import */ var _RecipeList_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./RecipeList.jsx */ "./resources/js/components/RecipeList.jsx");
+/* harmony import */ var _RecipeDetail_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./RecipeDetail.jsx */ "./resources/js/components/RecipeDetail.jsx");
+/* harmony import */ var _NewRecipe_jsx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./NewRecipe.jsx */ "./resources/js/components/NewRecipe.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -65785,13 +65785,13 @@ function (_Component) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["BrowserRouter"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         exact: true,
         path: "/",
-        component: _RecipeList__WEBPACK_IMPORTED_MODULE_3__["default"]
+        component: _RecipeList_jsx__WEBPACK_IMPORTED_MODULE_3__["default"]
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         path: "/create",
-        component: _NewRecipe__WEBPACK_IMPORTED_MODULE_5__["default"]
+        component: _NewRecipe_jsx__WEBPACK_IMPORTED_MODULE_5__["default"]
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         path: "/:id",
-        component: _RecipeDetail__WEBPACK_IMPORTED_MODULE_4__["default"]
+        component: _RecipeDetail_jsx__WEBPACK_IMPORTED_MODULE_4__["default"]
       })));
     }
   }]);
@@ -65807,10 +65807,10 @@ if (document.getElementById('app')) {
 
 /***/ }),
 
-/***/ "./resources/js/components/NewRecipe.js":
-/*!**********************************************!*\
-  !*** ./resources/js/components/NewRecipe.js ***!
-  \**********************************************/
+/***/ "./resources/js/components/NewRecipe.jsx":
+/*!***********************************************!*\
+  !*** ./resources/js/components/NewRecipe.jsx ***!
+  \***********************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -66051,10 +66051,10 @@ function (_Component) {
 
 /***/ }),
 
-/***/ "./resources/js/components/RecipeDetail.js":
-/*!*************************************************!*\
-  !*** ./resources/js/components/RecipeDetail.js ***!
-  \*************************************************/
+/***/ "./resources/js/components/RecipeDetail.jsx":
+/*!**************************************************!*\
+  !*** ./resources/js/components/RecipeDetail.jsx ***!
+  \**************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -66152,10 +66152,10 @@ function (_Component) {
 
 /***/ }),
 
-/***/ "./resources/js/components/RecipeList.js":
-/*!***********************************************!*\
-  !*** ./resources/js/components/RecipeList.js ***!
-  \***********************************************/
+/***/ "./resources/js/components/RecipeList.jsx":
+/*!************************************************!*\
+  !*** ./resources/js/components/RecipeList.jsx ***!
+  \************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import RecipeList from './RecipeList';
-import RecipeDetail from './RecipeDetail';
-import NewRecipe from './NewRecipe';
+import RecipeList from './RecipeList.jsx';
+import RecipeDetail from './RecipeDetail.jsx';
+import NewRecipe from './NewRecipe.jsx';
 
 export default class App extends Component {
     render() {
