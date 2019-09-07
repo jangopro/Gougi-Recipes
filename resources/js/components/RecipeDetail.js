@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import RecipeRating from './RecipeRating';
 
 export default class RecipeDetail extends Component {
     constructor(props) {
@@ -35,13 +36,18 @@ export default class RecipeDetail extends Component {
                                 <p>{recipe.author}</p>
                                 <p>Prep time: {recipe.prepTime} min</p>
                                 <p>Cook Time: {recipe.cookTime} min</p>
-                                <ol>
-                                    {recipe.instructions.map(instruction => (
-                                        <li key={instruction.id}>
-                                            {instruction.description}
-                                        </li>
-                                    ))}
-                                </ol>
+                                <p>
+                                    Site web:{' '}
+                                    <a
+                                        target="_blank"
+                                        rel="noopener"
+                                        href={recipe.url}
+                                    >
+                                        {recipe.url}
+                                    </a>
+                                </p>
+                                <RecipeRating rating={recipe.rating} />
+                                <p>Note: {recipe.note}</p>
                             </div>
                         </div>
                     </div>

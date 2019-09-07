@@ -5,7 +5,7 @@ export default class NewRecipe extends Component {
         super(props);
         this.state = {
             name: '',
-            description: '',
+            note: '',
             cookTime: '',
             prepTime: '',
             author: '',
@@ -30,7 +30,7 @@ export default class NewRecipe extends Component {
 
         const recipe = {
             name: this.state.name,
-            description: this.state.description,
+            note: this.state.note,
             cookTime: this.state.cookTime,
             prepTime: this.state.prepTime,
             author: this.state.author
@@ -93,22 +93,22 @@ export default class NewRecipe extends Component {
                                         {this.renderErrorFor('name')}
                                     </div>
                                     <div className="form-group">
-                                        <label htmlFor="description">
-                                            Recipe description
+                                        <label htmlFor="note">
+                                            Recipe Note
                                         </label>
                                         <textarea
-                                            id="description"
+                                            id="note"
                                             className={`form-control ${
-                                                this.hasErrorFor('description')
+                                                this.hasErrorFor('note')
                                                     ? 'is-invalid'
                                                     : ''
                                             }`}
-                                            name="description"
+                                            name="note"
                                             rows="10"
-                                            value={this.state.description}
+                                            value={this.state.note}
                                             onChange={this.handleFieldChange}
                                         />
-                                        {this.renderErrorFor('description')}
+                                        {this.renderErrorFor('note')}
                                     </div>
                                     <div className="form-group">
                                         <label htmlFor="cookTime">

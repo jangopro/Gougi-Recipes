@@ -25,12 +25,12 @@ class RecipeController extends Controller
       {
         $validatedData = $request->validate([
           'name' => 'required',
-          'description' => 'required',
+          'note' => 'required',
         ]);
 
         $project = Recipe::create([
           'name' => $validatedData['name'],
-          'description' => $validatedData['description'],
+          'note' => $validatedData['note'],
           'cookTime' => $request['cookTime'],
           'prepTime' => $request['prepTime'],
           'author' => $request['author']

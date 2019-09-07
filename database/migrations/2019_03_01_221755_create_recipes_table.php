@@ -16,10 +16,13 @@ class CreateRecipesTable extends Migration
         Schema::create('recipes', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->text('description');
-            $table->text('cookTime');
-            $table->text('prepTime');
-            $table->text('author');
+            $table->text('description')->nullable();;
+            $table->string('cookTime');
+            $table->string('prepTime');
+            $table->string('author')->nullable();;
+            $table->string('url')->nullable();;
+            $table->text('note')->nullable();;
+            $table->float('rating')->nullable();;
             $table->timestamps();
         });
     }

@@ -8,6 +8,9 @@ $factory->define(App\Recipe::class, function (Faker $faker) {
         'description' => $faker->words($nb = 5, $asText = true),
         'cookTime' => $faker->numberBetween($min = 0, $max = 60),
         'prepTime' => $faker->numberBetween($min = 0, $max = 60),
-        'author' => $faker->name($gender = null)
+        'author' => $faker->name($gender = null),
+        'url' => $faker->url(),
+        'note' => $faker->text($maxNbChars = 200),
+        'rating' => $faker->numberBetween($min = 1, $max = 5),
     ];
 });
