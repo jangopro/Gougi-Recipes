@@ -19,6 +19,28 @@ export default class RecipeList extends Component {
         });
     }
 
+    calculateTime(prepTime, cookTime) {
+        return this.timeConvert(parseInt(prepTime) + parseInt(cookTime));
+    }
+
+    timeConvert(time) {
+        var num = time;
+        var hours = num / 60;
+        var rhours = Math.floor(hours);
+        var minutes = (hours - rhours) * 60;
+        var rminutes = Math.round(minutes);
+
+        var minutesString = rminutes < 10 ? `0${rminutes}` : rminutes;
+        if (rhours < 1) {
+            minutesString = `${rminutes} min`;
+        }
+        console.log(rhours);
+        var hoursString = rhours > 0 ? `${rhours}h` : '';
+
+        console.log(hoursString);
+        return hoursString + minutesString;
+    }
+
     render() {
         const { recipes } = this.state;
         return (
@@ -32,7 +54,7 @@ export default class RecipeList extends Component {
                                     className="btn btn-primary btn-sm mb-3"
                                     to="/create"
                                 >
-                                    Create new project
+                                    Add new recipe
                                 </Link>
                                 <ul className="list-group">
                                     {recipes.map(recipe => (
@@ -41,8 +63,19 @@ export default class RecipeList extends Component {
                                             to={`/${recipe.id}`}
                                             key={recipe.id}
                                         >
+                                            <img
+                                                src={recipe.image}
+                                                style={{ width: 100 }}
+                                                alt=""
+                                            />
                                             <div className="p-2">
                                                 {recipe.name}
+                                            </div>
+                                            <div className="p-2">
+                                                {this.calculateTime(
+                                                    recipe.prepTime,
+                                                    recipe.cookTime
+                                                )}
                                             </div>
                                             <div className="ml-auto p-2">
                                                 <RecipeRating

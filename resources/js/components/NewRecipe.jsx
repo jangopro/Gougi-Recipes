@@ -33,7 +33,8 @@ export default class NewRecipe extends Component {
             note: this.state.note,
             cookTime: this.state.cookTime,
             prepTime: this.state.prepTime,
-            author: this.state.author
+            author: this.state.author,
+            image: this.state.image
         };
 
         axios
@@ -158,6 +159,21 @@ export default class NewRecipe extends Component {
                                             onChange={this.handleFieldChange}
                                         />
                                         {this.renderErrorFor('author')}
+                                    </div>
+                                    <div className="form-group">
+                                        <label htmlFor="Image">Image</label>
+                                        <input
+                                            id="image"
+                                            className={`form-control ${
+                                                this.hasErrorFor('image')
+                                                    ? 'is-invalid'
+                                                    : ''
+                                            }`}
+                                            name="image"
+                                            value={this.state.image}
+                                            onChange={this.handleFieldChange}
+                                        />
+                                        {this.renderErrorFor('image')}
                                     </div>
                                     <button className="btn btn-primary">
                                         Create

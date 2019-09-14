@@ -11,6 +11,7 @@ $factory->define(App\Recipe::class, function (Faker $faker) {
         'author' => $faker->name($gender = null),
         'url' => $faker->url(),
         'note' => $faker->text($maxNbChars = 200),
+        'image' => $faker->imageUrl($width = 640, $height = 480, 'food'),
         'rating' => $faker->numberBetween($min = 1, $max = 5),
     ];
 });

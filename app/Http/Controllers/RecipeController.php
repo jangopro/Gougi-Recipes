@@ -33,7 +33,8 @@ class RecipeController extends Controller
           'note' => $validatedData['note'],
           'cookTime' => $request['cookTime'],
           'prepTime' => $request['prepTime'],
-          'author' => $request['author']
+          'author' => $request['author'],
+          'image' => $request['image'],
         ]);
 
         return response()->json('Recipe created!');

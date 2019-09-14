@@ -28,12 +28,13 @@ export default class RecipeDetail extends Component {
         return (
             <div className="container py-4">
                 <div className="row justify-content-center">
-                    <div className="col-md-8">
-                        <div className="card">
-                            <div className="card-header">{recipe.name}</div>
-                            <div className="card-body">
+                    <div>
+                        <div>
+                            <div>{recipe.name}</div>
+                            <div>
                                 <p>{recipe.description}</p>
                                 <p>{recipe.author}</p>
+                                <img src={recipe.image} alt="" />
                                 <p>Prep time: {recipe.prepTime} min</p>
                                 <p>Cook Time: {recipe.cookTime} min</p>
                                 <p>

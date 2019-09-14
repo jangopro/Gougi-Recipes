@@ -65884,7 +65884,8 @@ function (_Component) {
         note: this.state.note,
         cookTime: this.state.cookTime,
         prepTime: this.state.prepTime,
-        author: this.state.author
+        author: this.state.author,
+        image: this.state.image
       };
       axios.post('/api/recipes', recipe).then(function (response) {
         // redirect to the homepage
@@ -65978,7 +65979,17 @@ function (_Component) {
         name: "author",
         value: this.state.author,
         onChange: this.handleFieldChange
-      }), this.renderErrorFor('author')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }), this.renderErrorFor('author')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "Image"
+      }, "Image"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        id: "image",
+        className: "form-control ".concat(this.hasErrorFor('image') ? 'is-invalid' : ''),
+        name: "image",
+        value: this.state.image,
+        onChange: this.handleFieldChange
+      }), this.renderErrorFor('image')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "btn btn-primary"
       }, "Create")))))));
     }
@@ -66127,15 +66138,10 @@ function (_Component) {
         className: "container py-4"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "row justify-content-center"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-md-8"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "card"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "card-header"
-      }, recipe.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "card-body"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, recipe.description), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, recipe.author), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Prep time: ", recipe.prepTime, " min"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Cook Time: ", recipe.cookTime, " min"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Site web:", ' ', react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, recipe.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, recipe.description), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, recipe.author), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: recipe.image,
+        alt: ""
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Prep time: ", recipe.prepTime, " min"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Cook Time: ", recipe.cookTime, " min"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Site web:", ' ', react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         target: "_blank",
         rel: "noopener",
         href: recipe.url
@@ -66220,8 +66226,34 @@ function (_Component) {
       });
     }
   }, {
+    key: "calculateTime",
+    value: function calculateTime(prepTime, cookTime) {
+      return this.timeConvert(parseInt(prepTime) + parseInt(cookTime));
+    }
+  }, {
+    key: "timeConvert",
+    value: function timeConvert(time) {
+      var num = time;
+      var hours = num / 60;
+      var rhours = Math.floor(hours);
+      var minutes = (hours - rhours) * 60;
+      var rminutes = Math.round(minutes);
+      var minutesString = rminutes < 10 ? "0".concat(rminutes) : rminutes;
+
+      if (rhours < 1) {
+        minutesString = "".concat(rminutes, " min");
+      }
+
+      console.log(rhours);
+      var hoursString = rhours > 0 ? "".concat(rhours, "h") : '';
+      console.log(hoursString);
+      return hoursString + minutesString;
+    }
+  }, {
     key: "render",
     value: function render() {
+      var _this3 = this;
+
       var recipes = this.state.recipes;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "container py-4"
@@ -66238,16 +66270,24 @@ function (_Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
         className: "btn btn-primary btn-sm mb-3",
         to: "/create"
-      }, "Create new project"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+      }, "Add new recipe"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         className: "list-group"
       }, recipes.map(function (recipe) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
           className: "list-group-item list-group-item-action d-flex mb-2",
           to: "/".concat(recipe.id),
           key: recipe.id
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          src: recipe.image,
+          style: {
+            width: 100
+          },
+          alt: ""
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "p-2"
         }, recipe.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "p-2"
+        }, _this3.calculateTime(recipe.prepTime, recipe.cookTime)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "ml-auto p-2"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_RecipeRating__WEBPACK_IMPORTED_MODULE_3__["default"], {
           rating: recipe.rating

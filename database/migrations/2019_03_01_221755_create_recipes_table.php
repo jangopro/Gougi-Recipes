@@ -23,6 +23,7 @@ class CreateRecipesTable extends Migration
             $table->string('url')->nullable();;
             $table->text('note')->nullable();;
             $table->float('rating')->nullable();;
+            $table->text('image')->nullable();;
             $table->timestamps();
         });
     }
